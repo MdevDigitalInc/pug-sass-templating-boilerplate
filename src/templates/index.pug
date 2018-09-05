@@ -1,7 +1,9 @@
 doctype html
 html
   include ../shared/meta-head.pug
-  body
-    h1 My Site
-    p Welcome to my super lame site.
+  body.u-text-center
+    include ../shared/navigation.pug
+    .mdev-image
+      img(src="../../assets/images/favicon.png")
+    h1 MDEV - PUG + SASS Boilerplate
     include ../shared/footer.pug

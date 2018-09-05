@@ -1,4 +1,4 @@
-// MDEV Digital - Webpack Boilerplate[VueJS]
+// MDEV Digital - Webpack Boilerplate[Pug + SCSS]
 // Webpack 4 Configuration file
 // -----------------------------------------
 // PRODUCTION ENVIRONMENT
@@ -61,6 +61,9 @@ module.exports = merge(common, {
     // Set NODE_ENV to Production
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new UglifyJSPlugin({
+      sourceMap: true
     }),
     new OptimizeCssAssetsPlugin({
       cssProcessor: require('cssnano'),

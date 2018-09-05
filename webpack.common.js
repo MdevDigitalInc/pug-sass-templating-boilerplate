@@ -1,7 +1,7 @@
-// MDEV Digital - Webpack Boilerplate[VueJS]
+// MDEV Digital - Webpack Boilerplate[Pug + SCSS]
 // Webpack 4 Configuration file
 // -----------------------------------------
-// PRODUCTION ENVIRONMENT
+// Common Webpack Rules
 // ----------------------------------------
 
 // Required Imports
@@ -43,7 +43,8 @@ module.exports = {
     rules: [
       {
         test: /\.pug$/,
-        use: [ 'html-loader', 'pug-html-loader' ]
+        // pretty is used to prevent minification of .pug templates
+        use: [ 'html-loader?pretty=true', 'pug-html-loader?pretty=true' ]
       },
       {
         test: /\.js$/,
@@ -120,10 +121,28 @@ module.exports = {
   plugins: [
     // Text Extraction & Chunking
     new ExtractTextPlugin("assets/styles/styles[hash].css"),
+    // [ PUG + SASS Template Registration ]
+    // -----------------------------------
+    // Webpack needs to know which main templates to compile.
+    // For every template you want to compile you must create a new
+    // instance of the HtmlWebpackPlugin (https://github.com/jantimon/html-webpack-plugin)
+    // and pass the "template" parameter.
+    //
+    // -----------------------------------
+    //
+    // new HtmlWebpackPlugin({
+    //   template: './path/to/template.pug',
+    //   filename: 'desired/path/to/output.html'
+    // }),
+    //
+    // -----------------------------------
+    //
+    // If you pass a "filename" property you can assign a name and location
+    // for the processed file to be placed. Otherwise it will save it to the root with the same name
+    //
+    // IE: filename:'./shared/footer.html' will output the template as dist/shared/footer.html
     new HtmlWebpackPlugin({
-      template: './src/templates/index.pug',
-      filename: './test.html',
-      minimize: false
+      template: './src/templates/index.pug'
     }),
   ],
   performance: {
