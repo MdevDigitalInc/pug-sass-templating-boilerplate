@@ -42,6 +42,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.pug$/,
+        use: [ 'html-loader', 'pug-html-loader' ]
+      },
+      {
         test: /\.js$/,
           exclude: /(node_modules)/,
           use: [{
@@ -117,7 +121,9 @@ module.exports = {
     // Text Extraction & Chunking
     new ExtractTextPlugin("assets/styles/styles[hash].css"),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/templates/index.pug',
+      filename: './test.html',
+      minimize: false
     }),
   ],
   performance: {
