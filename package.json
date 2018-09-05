@@ -40,6 +40,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-loader": "^2.1.5",
+    "pug": "^2.0.3",
     "robotstxt-webpack-plugin": "^4.0.1",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
