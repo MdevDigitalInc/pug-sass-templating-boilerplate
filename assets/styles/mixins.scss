@@ -1,0 +1,11 @@
+// Mixins
+
+// Arrow Anim Rules
+@mixin arrow-anim-rules( $duration: .5s, $timing: ease-in-out, $iteration: infinite, $fill: both ) {
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-fill-mode: $fill;
+  animation-iteration-count: $iteration;
+}
+
+

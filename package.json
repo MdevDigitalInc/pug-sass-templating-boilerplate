@@ -8,8 +8,8 @@
   "scripts": {
     "dev": "webpack-dev-server --open --config webpack.dev.js",
     "lintcss": "stylelint '**/*.scss' --syntax scss",
-    "lintvue": "stylelint '**/*.vue' --syntax scss",
-    "build": "webpack --config webpack.prod.js",
+    "prod": "webpack --config webpack.prod.js",
+    "build": "npm run lintcss && npm run prod",
     "clean": "rm -r dist/"
   },
   "dependencies": {

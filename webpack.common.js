@@ -114,10 +114,6 @@ module.exports = {
   },
   // Plugins & Post Processing
   plugins: [
-    new StyleLintPlugin({
-      syntax: 'scss',
-      files: ['**/*.vue']
-    }),
     // Text Extraction & Chunking
     new ExtractTextPlugin("assets/styles/styles[hash].css"),
     new HtmlWebpackPlugin({

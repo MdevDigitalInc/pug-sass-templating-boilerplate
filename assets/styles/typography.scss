@@ -24,37 +24,40 @@ h6,.h6, {
   font-family: $main-font;
   font-weight: 700;
   color: inherit;
+  margin-bottom: 25px;
 }
 
 // Responsive Font Size Maps
 $p-font-sizes: (
-  null  : 14px,
-  $tablet-up : 16px,
-  $desktop-up: 19px
+  null  : 20px,
+  $tablet-up  : 1.15vw,
+  $tablet-lnd-only : 1.4vw,
+  $laptop-only : 1.4vw,
+  $portrait : 4vw,
+  $phone-only : 6vw
 );
 
 $h1-font-sizes: (
-  null  : 25px,
-  $tablet-up : 28px,
-  $desktop-up: 70px
+  null  : 2.5vw,
+  $portrait : 5.3vw,
+  $laptop-only : 3vw,
+  $phone-only: 8vw
 );
 
 $h2-font-sizes: (
-  null  : 30px,
-  $tablet-up : 32px,
-  $desktop-up: 35px
+  null  : 60px,
+  $portrait: 55px
 );
 
 $h3-font-sizes: (
-  null  : 20px,
-  $tablet-up : 22px,
-  $desktop-up: 25px
+  null  : 1.6vw,
+  $portrait: 5vw,
+  $phone-only: 6vw
 );
 
 $h4-font-sizes: (
-  null  : 60%,
-  $tablet-up : 90%,
-  $desktop-up: 18px
+  null  : 22px,
+  $portrait: 18px
 );
 
 $h5-font-sizes: (
@@ -91,8 +94,13 @@ $link-font-sizes: (
 /* Generate Responsive Sizing */
 
 p {
-  line-height: 24px;
+  line-height: 180%;
+  font-weight: 400;
   @include font-size($p-font-sizes);
+
+  @media #{$phone-only} {
+    line-height: 150%;
+  }
 }
 
 h1,
@@ -108,6 +116,15 @@ h2,
 h3,
 .h3 {
   @include font-size($h3-font-sizes);
+  letter-spacing: 5px;
+
+  @media #{$portrait} {
+    line-height: 120%;
+  }
+
+  @media #{$tablet-lnd-only} {
+    letter-spacing: 2px;
+  }
 }
 
 h4,
@@ -143,3 +160,9 @@ a {
   }
 }
 
+.mdev-hero-text {
+  @include font-size($h1-font-sizes);
+  line-height: 120%;
+  color: $color-brand-primary;
+  font-weight: 700;
+}
