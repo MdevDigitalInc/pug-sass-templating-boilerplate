@@ -44,7 +44,19 @@ module.exports = {
       {
         test: /\.pug$/,
         // pretty is used to prevent minification of .pug templates
-        use: [ 'html-loader?pretty=true', 'pug-html-loader?pretty=true' ]
+        use: [
+          {loader: 'html-loader'},
+          {
+            loader: 'pug-html-loader?pretty=true',
+            options: {
+              pretty: true,
+
+              data : {
+                require: require
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,
