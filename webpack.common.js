@@ -95,7 +95,7 @@ module.exports = {
       // Image Processing
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
-        loaders: [ 'file-loader?context=src/images&name=images/[path][name].[ext]', {
+        loaders: [ 'file-loader?context=assets&name=[path][name].[ext]', {
           loader: 'image-webpack-loader',
           query: {
             // JPEG Processing
@@ -156,6 +156,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/templates/index.pug'
     }),
+    new CopyWebpackPlugin([
+      { from: 'src/js', to: 'js', force: true }
+    ])
   ],
   performance: {
     hints: 'warning'
