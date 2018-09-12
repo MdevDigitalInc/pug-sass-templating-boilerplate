@@ -1,4 +1,4 @@
-// MDEV Digital - Webpack Boilerplate[VueJS]
+// MDEV Digital - Webpack Boilerplate[Pug + SCSS]
 // Webpack 4 Configuration file
 // -----------------------------------------
 // PRODUCTION ENVIRONMENT

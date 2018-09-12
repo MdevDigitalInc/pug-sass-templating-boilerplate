@@ -1,7 +1,7 @@
-// MDEV Digital - Webpack Boilerplate[VueJS]
+// MDEV Digital - Webpack Boilerplate[Pug + SCSS]
 // Webpack 4 Configuration file
 // -----------------------------------------
-// PRODUCTION ENVIRONMENT
+// Common Webpack Rules
 // ----------------------------------------
 
 // Required Imports
@@ -42,6 +42,23 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.pug$/,
+        // pretty is used to prevent minification of .pug templates
+        use: [
+          {loader: 'html-loader'},
+          {
+            loader: 'pug-html-loader?pretty=true',
+            options: {
+              pretty: true,
+
+              data : {
+                require: require
+              }
+            }
+          }
+        ]
+      },
+      {
         test: /\.js$/,
           exclude: /(node_modules)/,
           use: [{
@@ -78,7 +95,7 @@ module.exports = {
       // Image Processing
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
-        loaders: [ 'file-loader?context=src/images&name=images/[path][name].[ext]', {
+        loaders: [ 'file-loader?context=assets&name=[path][name].[ext]', {
           loader: 'image-webpack-loader',
           query: {
             // JPEG Processing
@@ -116,9 +133,32 @@ module.exports = {
   plugins: [
     // Text Extraction & Chunking
     new ExtractTextPlugin("assets/styles/styles[hash].css"),
+    // [ PUG + SASS Template Registration ]
+    // -----------------------------------
+    // Webpack needs to know which main templates to compile.
+    // For every template you want to compile you must create a new
+    // instance of the HtmlWebpackPlugin (https://github.com/jantimon/html-webpack-plugin)
+    // and pass the "template" parameter.
+    //
+    // -----------------------------------
+    //
+    // new HtmlWebpackPlugin({
+    //   template: './path/to/template.pug',
+    //   filename: 'desired/path/to/output.html'
+    // }),
+    //
+    // -----------------------------------
+    //
+    // If you pass a "filename" property you can assign a name and location
+    // for the processed file to be placed. Otherwise it will save it to the root with the same name
+    //
+    // IE: filename:'./shared/footer.html' will output the template as dist/shared/footer.html
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/templates/index.pug'
     }),
+    new CopyWebpackPlugin([
+      { from: 'src/js', to: 'js', force: true }
+    ])
   ],
   performance: {
     hints: 'warning'
