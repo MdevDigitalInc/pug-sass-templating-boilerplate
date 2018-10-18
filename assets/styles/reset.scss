@@ -55,4 +55,9 @@ html {
   box-sizing: inherit;
 }
 
+// Adds antialiasing site wide
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 /* stylelint-enable */
