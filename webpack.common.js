@@ -10,6 +10,7 @@ const webpack = require('webpack')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const setPath = function(folderName) {
   return path.join(__dirname, folderName);
@@ -63,7 +64,7 @@ module.exports = {
           exclude: /(node_modules)/,
           use: [{
             loader: "babel-loader",
-            options: { presets: ['es2015'] }
+            options: { presets: ['babel-preset-es2015'] }
           }]
       },
       // CSS Processing
