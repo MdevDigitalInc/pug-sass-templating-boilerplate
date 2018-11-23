@@ -6,7 +6,7 @@
   "private": true,
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --config webpack.dev.js",
+    "dev": "npm run lintcss && webpack-dev-server --open --config webpack.dev.js",
     "lintcss": "stylelint '**/*.scss' --syntax scss",
     "prod": "webpack --config webpack.prod.js",
     "build": "npm run lintcss && npm run prod",
