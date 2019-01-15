@@ -1,4 +1,5 @@
 // Global Form Styles
+
 form {
   width: 100%;
   position: relative;
@@ -7,6 +8,7 @@ form {
 
 /* stylelint-disable */
 /* Disabled because it is valid and I need this level of control*/
+
 .mdev-error {
   border-top: 4px solid red !important;
   border-bottom: 4px solid red !important;
@@ -15,6 +17,8 @@ form {
 
 $border-color-active: rgba(15, 22, 24, 1);
 $border-color-passive: rgba(15, 22, 24, 0);
+$form-placeholder-color: #999;
+
 input {
   &[type="text"],
   &[type="email"],
@@ -48,7 +52,7 @@ input {
     }
 
     &::placeholder {
-      color: $color-brand-bkg;
+      color: $form-placeholder-color;
     }
   }
 }
@@ -74,7 +78,7 @@ textarea {
   }
 
   &::placeholder {
-    color: $color-brand-bkg;
+    color: $form-placeholder-color;
   }
 
   &.--filled {
@@ -99,5 +103,3 @@ textarea {
   width: 100%;
   position: relative;
 }
-
-

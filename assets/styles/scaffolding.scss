@@ -40,7 +40,6 @@
 
 // BOILER ONLY REMOVE BELOW --------------
 .mdev-boilerlink {
-  color: $color-brand-primary;
   margin-top: 10px;
   display: block;
 }
@@ -87,7 +86,7 @@ body {
   }
 
   .mdev-main-nav-links {
-    color: $color-brand-primary;
+    color: $black;
   }
 
   .mdev-main-nav-links a {
@@ -112,5 +111,3 @@ body {
     background: rgba(51,51,51,.9);
   }
 }
-
-
