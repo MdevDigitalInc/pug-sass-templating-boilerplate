@@ -23,6 +23,7 @@ const setPath = function(folderName) {
 
 // Robots.TXT Configuration
 const robotOptions = {
+  // TODO - Modify Robots.txt - Set it to "disalow: /" for staging
   policy: [
     {
       userAgent: "Googlebot",
@@ -71,16 +72,19 @@ module.exports = merge(common, {
       canPrint: true
     }),
     // Process and Inject Favicon
+    // TODO - Implement Favicon
     new FaviconsWebpackPlugin({
+      // TODO - Ensure favicon.png is the correct image for project!
       logo: './assets/images/favicon.png', // Source for Favicon file
       prefix: 'icons-[hash]/', // File Prefix
       emitStats: false,
       statsFilename: 'iconstats-[hash].json',
       persistentCache: true,
       inject: true, // Inject Calls on index.html automatically
-      // CHANGE COLOR OF THEME
+      // TODO - CHANGE COLOR OF THEME - This changes the color of browser
+      // address bar on Android devices.
       background: '#13b2a9',
-      // CHANGE PROJECT TITLE
+      // TODO - CHANGE TITLE - This gets outputted on chat engines / Facebook
       title: 'MDEV Digital Inc.',
       // Icons to export
       icons: {

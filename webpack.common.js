@@ -48,10 +48,12 @@ module.exports = {
         use: [
           {loader: 'html-loader'},
           {
+            // Change pretty to false to minify HTML output
             loader: 'pug-html-loader?pretty=true',
             options: {
               pretty: true,
 
+              // Passes require to the Pug template handler
               data : {
                 require: require
               }
@@ -154,6 +156,8 @@ module.exports = {
     // for the processed file to be placed. Otherwise it will save it to the root with the same name
     //
     // IE: filename:'./shared/footer.html' will output the template as dist/shared/footer.html
+    //
+    // TODO - Add new slugs here for the pages being created.
     new HtmlWebpackPlugin({
       template: './src/templates/index.pug'
     }),
