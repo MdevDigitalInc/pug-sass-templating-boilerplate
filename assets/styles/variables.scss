@@ -8,15 +8,14 @@ $color-brand-primary: #16b1a9;
 $color-brand-accent: #c4ee1e;
 $color-brand-bkg: #0f1618;
 $bkg-light-grey: #fafafa;
+
+// Main Colours
 $black: #000;
 $white: #fff;
 
+// Project Colours
 
-// Main Font
-$main-font: 'Roboto', 'Helvetica', sans-serif;
-$heading-weight: 700;
-$subheading-weight: 500;
-$body-weight: 300;
+$color-example-grey: #0e0e0e;
 
 // Sizing Variables
 
@@ -25,6 +24,9 @@ $body-weight: 300;
 // Button Variables
 
 // Radius Variables
+
 $standard-radius: 4px;
 
-//Clipping Paths
+// Clipping Paths
+
+/* Typography Variables are in typography.scss now */

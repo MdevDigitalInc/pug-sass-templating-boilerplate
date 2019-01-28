@@ -2,7 +2,14 @@
  *	TYPOGRAPHY
 /-------------------------------------*/
 
+// Font Variables
+
+$main-font: 'Roboto', 'Helvetica', sans-serif;
+$main-weight: 300;
+$main-bold: 700;
+
 /* Main */
+
 body {
   font-family: $main-font;
   font-size: 16px;
@@ -29,50 +36,44 @@ h6,.h6, {
 
 // Responsive Font Size Maps
 $p-font-sizes: (
-  null  : 20px,
-  $tablet-up  : 1.15vw,
-  $tablet-lnd-only : 1.4vw,
-  $laptop-only : 1.4vw,
-  $portrait : 4vw,
-  $phone-only : 6vw
+  null: 14px,
+  $tablet-up: 16px
 );
 
 $h1-font-sizes: (
-  null  : 2.5vw,
-  $portrait : 5.3vw,
-  $laptop-only : 3vw,
-  $phone-only: 8vw
+  null: 14px,
+  $tablet-up: 16px
 );
 
 $h2-font-sizes: (
-  null  : 60px,
-  $portrait: 55px
+  null: 14px,
+  $tablet-up: 16px
 );
 
 $h3-font-sizes: (
-  null  : 1.6vw,
-  $portrait: 5vw,
-  $phone-only: 6vw
+  null: 14px,
+  $tablet-up: 16px
 );
 
 $h4-font-sizes: (
-  null  : 22px,
-  $portrait: 18px
+  null: 14px,
+  $tablet-up: 16px
 );
 
 $h5-font-sizes: (
-  null  : 14px
+  null: 14px,
+  $tablet-up: 16px
 );
 
 $h6-font-sizes: (
-  null  : 10px
+  null: 14px,
+  $tablet-up: 16px
 );
 
 // Links
 $link-font-sizes: (
-  null  : 16px,
-  $tablet-up : 17px,
-  $desktop-up: 18px
+  null: 14px,
+  $tablet-up: 16px
 );
 
 // Responsive Font-Size Mixing (Function Only)
@@ -94,13 +95,10 @@ $link-font-sizes: (
 /* Generate Responsive Sizing */
 
 p {
-  line-height: 180%;
+  line-height: 100%;
   font-weight: 400;
-  @include font-size($p-font-sizes);
 
-  @media #{$phone-only} {
-    line-height: 150%;
-  }
+  @include font-size($p-font-sizes);
 }
 
 h1,
@@ -116,15 +114,6 @@ h2,
 h3,
 .h3 {
   @include font-size($h3-font-sizes);
-  letter-spacing: 5px;
-
-  @media #{$portrait} {
-    line-height: 120%;
-  }
-
-  @media #{$tablet-lnd-only} {
-    letter-spacing: 2px;
-  }
 }
 
 h4,
@@ -158,11 +147,4 @@ a {
     text-decoration: none;
     color: inherit;
   }
-}
-
-.mdev-hero-text {
-  @include font-size($h1-font-sizes);
-  line-height: 120%;
-  color: $color-brand-primary;
-  font-weight: 700;
 }
