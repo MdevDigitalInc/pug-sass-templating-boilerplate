@@ -8,7 +8,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
@@ -33,6 +33,15 @@ module.exports = {
     runtimeChunk: false,
     splitChunks: {
       chunks: "all", //Taken from https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
+      // Cache groups to separate SCSS
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.(sa|sc|c)ss$/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
     }
   },
   // Find Node Modules
@@ -66,39 +75,23 @@ module.exports = {
           exclude: /(node_modules)/,
           use: [{
             loader: "babel-loader",
-            options: { presets: ['babel-preset-es2015'] }
+            options: { presets: ['env'] }
           }]
       },
-      // CSS Processing
+      // Mini-Css-Extract-Plugin - Pulls SCSS/CSS into file
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-        fallback: "style-loader",
-          use: ["css-loader"]
-        })
-      },
-      // SASS Processing
-      {
-        test: /\.scss$/,
-        use:
-        ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 2 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
-              }
-            },
-            'postcss-loader',
-            'sass-loader'
-          ]
-        }),
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       // Image Processing
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
-        loaders: [ 'file-loader?context=assets&name=[path][name].[ext]', {
+        loaders: [ 'file-loader?context=assets/images&name=assets/images/[path][name].[ext]', {
           loader: 'image-webpack-loader',
           query: {
             // JPEG Processing
@@ -135,7 +128,9 @@ module.exports = {
   // Plugins & Post Processing
   plugins: [
     // Text Extraction & Chunking
-    new ExtractTextPlugin("assets/styles/styles[hash].css"),
+    new MiniCssExtractPlugin({
+      filename: "assets/styles/styles-[hash].css"
+    }),
     // [ PUG + SASS Template Registration ]
     // -----------------------------------
     // Webpack needs to know which main templates to compile.
