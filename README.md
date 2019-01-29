@@ -16,6 +16,39 @@ in the project either with `git grep` or your IDE of choice.
 
 ---
 
+# [ HOW TO USE THIS BOILERPLATE ]
+
+1. Click the big green download button on this repository and download a ZIP of
+   the project. This zip will include every single file you need to boot this
+   boilerplate up for another project. Make sure you can *see hidden files*
+   before proceeding to extract.
+
+2. Create a new repository inside of the MdevDigital corporate Github. Process
+   is simple, head on over to [MDEV Digital Git](https://git.mdev.digital "MDEV
+   GIT") and click the *new* button.
+
+   Make sure to name the repository with the appropriate name. It starts with
+a three letter acronym for the client and then the name of the project separated
+by dashes. Something like `mdev-test-project` is quite acceptable.
+
+  Initialize the repository with a README and pick *node* for the gitignore.
+
+3. Now that you have your new repository go ahead and clone it over on to your
+   computer using either command line or GUI.
+
+4. Extract the zip you downloaded on step *1* into the repository you just
+   cloned. Let it overwrite any existing files (Readme, gitignore usually).
+
+5. Open up `package.json` file and modify the project name accordingly. You
+   might wish to do a search for *TODO* on the project to find other
+   placeholders that need to be changed to match the project data.
+
+6. Run `npm install` and after it completes run `npm run dev` to make sure
+   everything is working as intended.
+
+7. Commit and push your repository! We now have a new project ready to roll and
+   collaborate on with the rest of the team.
+
 # Pug + SASS Templating Boilerplate
 ## Webpack powered templating boilerplate for generating HTML pages.
 This boilerplate aims to be a simple way of generating static HTML / CSS / JS
