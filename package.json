@@ -15,8 +15,7 @@
   "dependencies": {
     "clean-webpack-plugin": "^0.1.19",
     "s3-website": "^3.3.0",
-    "sass-resources-loader": "^1.3.5",
-    "upgrade": "^1.1.0"
+    "sass-resources-loader": "^1.3.5"
   },
   "devDependencies": {
     "@moreira-development/sass-boilerplate-lean": "^1.0.5",
