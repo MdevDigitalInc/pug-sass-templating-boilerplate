@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    //- Shared Head
+    block head
+      include ../shared/meta-head.pug
+
+  body
+    noscript
+      iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX" height="0" width="0" style="display:none;visibility:hidden")
+    //- Shared Navigation
+    include ../shared/navigation.pug
+    //- Shared Mixins
+    include _mixins.pug
+    //- Content Block
+    block content
+    //- Footer Block
+    block footer
+      include ../shared/footer.pug

@@ -1,9 +1,18 @@
-doctype html
-html
-  include ../shared/meta-head.pug
-  body.u-text-center
-    include ../shared/navigation.pug
+//- Extends default layout
+extends _default-layout
+
+//- Adds content to the <head>
+block append head
+  // [ SEO ]
+  //-TODO Update Title
+  title MDEV DIGITAL | Process Driven UI/UX and Development - London, Ontario
+
+//- Adds content right after <body>
+block content
+  div.u-text-center
     .mdev-image
       img(src="../../assets/images/favicon.png")
-    h1 MDEV - PUG + SASS Boilerplate
-    include ../shared/footer.pug
+    //- Sample Mixin Usage
+    +sample-header(' MDEV - PUG + SASS Boilerplate')
+
+
