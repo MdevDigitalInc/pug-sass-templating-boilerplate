@@ -1,8 +1,8 @@
 {
   "name": "pug-sass-templating-boilerplate",
-  "description": "This project aims to provide a simple way of generating templated HTML5 / CSS pages",
+  "description": "MDEV DIGITAL | We are a hybrid agency specializing in custom software development, branding and marketing",
   "version": "1.0.0",
-  "author": "Lucas Moreira <lucas@mdev.digital>",
+  "author": "MDEV Digital <contact@mdev.digital>",
   "private": true,
   "main": "webpack.config.js",
   "scripts": {
@@ -10,7 +10,10 @@
     "lintcss": "stylelint '**/*.scss' --syntax scss",
     "prod": "webpack --config webpack.prod.js",
     "build": "npm run lintcss && npm run prod",
-    "clean": "rm -r dist/"
+    "clean": "rm -r dist/",
+    "build-staging": "npm run build && s3-website deploy && npm run clean",
+    "deploy-staging": "s3-website deploy",
+    "deploy-live": "./live-deploy.sh"
   },
   "dependencies": {
     "clean-webpack-plugin": "^0.1.19",
@@ -28,7 +31,7 @@
     "compression-webpack-plugin": "^1.1.11",
     "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^5.1.5",
-    "css-loader": "^0.28.11",
+    "css-loader": "^2.1.1",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-html": "^4.0.6",
