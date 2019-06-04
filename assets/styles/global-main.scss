@@ -76,6 +76,33 @@
 @import './forms.scss';
 
 /*----
+	FontAwesome
+-----*/
+// Font awesome requires the main fontawesome.scss to work
+// but allows you to tailor how many families you load just like a font.
+
+// [FontAwesome Loader] --------- ( Required )
+@import '~@fortawesome/fontawesome-pro/scss/fontawesome.scss';
+// Do not change, this overrides the font path so Webpack can find them.
+$fa-font-path: '~@fortawesome/fontawesome-pro/webfonts';
+
+// ----------------------------------------------
+// [][][ PLEASE DISABLE ANY UNUSED FAMILIES ][][]
+// ----------------------------------------------
+// [Brands] ---------
+@import '~@fortawesome/fontawesome-pro/scss/brands.scss';
+
+// [Light] ----------
+@import '~@fortawesome/fontawesome-pro/scss/light.scss';
+
+// [Regular] --------
+@import '~@fortawesome/fontawesome-pro/scss/regular.scss';
+
+// [Solid] ----------
+@import '~@fortawesome/fontawesome-pro/scss/solid.scss';
+
+
+/*----
   Print
 -----*/
 @import './print.scss';
