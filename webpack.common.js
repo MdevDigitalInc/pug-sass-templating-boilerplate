@@ -122,6 +122,15 @@ module.exports = {
             }
           }
         }]
+      },
+      // Font Processing
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 1000,
+          name: 'fonts/[name].[ext]'
+        }
       }
     ]
   },
